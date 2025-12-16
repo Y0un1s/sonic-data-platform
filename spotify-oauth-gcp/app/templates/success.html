@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Sonic — Connected</title>
+
+<style>
+  :root {
+    --bg:#0b0d0e;
+    --card:#181a1c;
+    --accent:#1DB954;
+    --text:#f4f4f5;
+    --muted:#9ca3af;
+    --radius:18px;
+  }
+
+  body {
+    margin:0;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: radial-gradient(circle at top, #151719, #0b0d0e 70%);
+    color:var(--text);
+    font-family:system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    overflow:hidden;
+    padding:20px;
+  }
+
+  .card {
+    width:90%;
+    max-width:480px;
+    background:var(--card);
+    padding:44px;
+    border-radius:var(--radius);
+    box-shadow:0 28px 60px rgba(0,0,0,0.4);
+    text-align:left;
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeUp 1s ease forwards;
+  }
+  @keyframes fadeUp {
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  .ok {
+    width:80px;height:80px;border-radius:24px;
+    background:linear-gradient(135deg,#1DB954,#15803d);
+    display:flex;align-items:center;justify-content:center;
+    color:white;font-size:38px;font-weight:700;
+    margin-bottom:16px;
+    animation:popIn .8s ease;
+  }
+  @keyframes popIn {
+    0% { transform:scale(0.4); opacity:0; }
+    70% { transform:scale(1.15); opacity:1; }
+    100% { transform:scale(1); }
+  }
+
+  .meta {
+    margin-top:16px;
+    background:#141416;
+    border-radius:14px;
+    padding:16px;
+    font-size:14px;
+    color:var(--muted);
+  }
+
+  /* SPLASH */
+  .splash {
+    position:fixed;
+    inset:0;
+    background:#0c0f0e;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    pointer-events:none;
+  }
+  /* Appears after delay */
+  .splash.show {
+    animation: fadeIn .8s ease forwards;
+  }
+  @keyframes fadeIn {
+    to { opacity:1; pointer-events:auto; }
+  }
+
+  .splash-logo {
+    width:130px;height:130px;
+    border-radius:28px;
+    background:linear-gradient(135deg,#1DB954,#15803d);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:48px;
+    font-weight:700;
+    box-shadow:0 26px 50px rgba(29,185,84,0.45);
+    animation:pulse 1.7s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0% { transform:scale(1); }
+    50% { transform:scale(1.08); }
+    100% { transform:scale(1); }
+  }
+
+</style>
+
+<script>
+  // After 3 seconds show splash
+  setTimeout(() => {
+    document.querySelector('.splash').classList.add('show');
+  }, 3000);
+
+  // Redirect after splash completes
+  setTimeout(() => {
+    window.location.href = "/";
+  }, 10300);
+</script>
+
+</head>
+<body>
+
+<div class="splash">
+  <div class="splash-logo">S</div>
+</div>
+
+<div class="card">
+
+  <div class="ok">✓</div>
+
+  <h2 style="margin:0 0 10px;">You're all set!</h2>
+  <p>Your Spotify account is now connected. Sonic will start collecting your recent listening activity.</p>
+
+  <div class="meta">
+    <strong>{{ display_name }}</strong> ({{ spotify_user_id }})
+    <br>
+    Refresh token stored securely in Secret Manager.
+  </div>
+
+</div>
+
+</body>
+</html>

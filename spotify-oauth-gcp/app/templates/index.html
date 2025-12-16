@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Sonic — Connect Spotify</title>
+
+<style>
+  :root {
+    --bg: #0b0d0e;
+    --card: #181a1c;
+    --accent: #1DB954;
+    --text: #f4f4f5;
+    --muted: #9ca3af;
+    --radius: 18px;
+    --shadow: 0 28px 60px rgba(0,0,0,0.40);
+  }
+
+  body {
+    margin:0;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: radial-gradient(circle at top, #151719, #0b0d0e 70%);
+    color:var(--text);
+    font-family:system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    overflow:hidden;
+  }
+
+  /* Subtle floating background glow */
+  .glow {
+    position:fixed;
+    width:420px;
+    height:420px;
+    background: radial-gradient(circle, rgba(29,185,84,0.18), transparent 70%);
+    top:-80px;
+    left:-80px;
+    filter:blur(40px);
+    opacity:0.65;
+    animation: floatGlow 12s ease-in-out infinite alternate;
+  }
+  @keyframes floatGlow {
+    0% { transform:translateY(0); }
+    100% { transform:translateY(50px); }
+  }
+
+  .card {
+    width:90%;
+    max-width:480px;
+    background:var(--card);
+    padding:44px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeUp 1s ease forwards;
+  }
+  @keyframes fadeUp {
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  .logo-box {
+    width:80px;height:80px;border-radius:22px;
+    background:linear-gradient(135deg,#1DB954,#15803d);
+    display:flex;align-items:center;justify-content:center;
+    font-size:34px;font-weight:700;
+    color:white;
+    box-shadow:0 22px 40px rgba(29,185,84,0.35);
+    animation:pulse 3s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0% { transform:scale(1); }
+    50% { transform:scale(1.07); }
+    100% { transform:scale(1); }
+  }
+
+  h1 {
+    margin:0;
+    font-size:30px;
+    font-weight:700;
+    animation:textReveal 1.2s ease forwards;
+    opacity:0;
+  }
+  @keyframes textReveal {
+    to { opacity:1; }
+  }
+
+  p.desc {
+    margin:0;
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.55;
+    animation:textFade 1.4s ease forwards;
+    opacity:0;
+  }
+  @keyframes textFade {
+    to { opacity:1; }
+  }
+
+  .btn {
+    margin-top:8px;
+    padding:14px 20px;
+    background:var(--accent);
+    border-radius:14px;
+    color:white;
+    font-weight:600;
+    text-decoration:none;
+    font-size:16px;
+    text-align:center;
+    box-shadow:0 16px 30px rgba(29,185,84,0.35);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover {
+    transform:translateY(-4px) scale(1.03);
+    box-shadow:0 22px 36px rgba(29,185,84,0.50);
+  }
+
+</style>
+
+</head>
+<body>
+
+<div class="glow"></div>
+
+<div class="card">
+
+  <div class="logo-box">S</div>
+
+  <h1>Welcome to Sonic</h1>
+
+  <p class="desc">
+    This little app was built by <strong>Younis, Nouran and Laila</strong>.
+    If you choose to connect your Spotify, you’ll help us create beautiful listening insights
+    for our graduation project, We truly appreciate your support.
+    <br><br>
+    We only access your public listening activity.
+    Your password is never shared with us, and you can revoke access anytime.
+  </p>
+
+  <a class="btn" href="{{ login_url }}">Connect with Spotify</a>
+
+</div>
+
+</body>
+</html>
