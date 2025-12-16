@@ -2,3 +2,5 @@ commands.txt
 .env
 .gcloudignore
 .idea
+__pycache__/
+*.pyc
