@@ -1,4 +1,4 @@
-**_**# **SONIC**
+# **SONIC**
 ![Python](https://img.shields.io/badge/Python-blue?logo=python&logoColor=white)
 ![GCP](https://img.shields.io/badge/Google_Cloud-Cloud_Run-red?logo=googlecloud&logoColor=white)
 ![Fabric](https://img.shields.io/badge/Microsoft_Fabric-Data_Lakehouse-teal?logo=microsoft&logoColor=white)
@@ -173,4 +173,4 @@ The Dashboard serves as the visual backbone of the project, offering deep analys
 
 **\[** [https://youtu.be/FClotxrx8F0?si=LPChkQOAVfUgeHZJ](https://youtu.be/FClotxrx8F0?si=LPChkQOAVfUgeHZJ) **\]**
 
-![Video-Thumbnail.jpg](assets/Video-Thumbnail.jpg)**_**
+![Video-Thumbnail.jpg](assets/Video-Thumbnail.jpg)
